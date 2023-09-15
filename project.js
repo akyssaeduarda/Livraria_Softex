@@ -219,25 +219,55 @@ function mod_inf() {
   } while (modificando_info);
 }
 
+function exibir_infos(){
+  for(i=0;i<llivros.length;i++){
+    const livro = llivros[i];
+    console.log("Titulo: "+livro.nome);
+    console.log("Genero: "+livro.genero);
+    console.log("Autor: "+livro.autor);
+    console.log("Ano de Publicacao: "+livro.anopubli);
+    console.log("Editora: "+livro.editora);
+    console.log("ISBN: "+livro.isbn);
+    console.log("Estoque: "+livro.estoque);
+    console.log(); 
+  }
+}
+
+
 // console.log("=====MENU=====");
 // console.log("--------------");
 // console.log("1 - novo cadastro");
 // console.log("2 - excluir cadastro");
 // console.log("3 - Modificar informacoes");
+// console.log("4 - Exibir informações")
+// console.log("5 - Sair")
 
-let opc = readline.question("Informe uma opcao: ");
+acabou = false
+while(acabou===false){
+  let opc = readline.question("Informe uma opcao: ");
 
-switch (opc) {
-  case "1":
-    cadastro();
-    break;
-  case "2":
-    excluir_cadastro();
-    break;
-  case "3":
-    mod_inf();
-    break;
-  default:
-    break;
+  if(opc=="5"){
+    acabou = true
+  }
+  switch (opc) {
+    case "1":
+      cadastro();
+      break;
+    case "2":
+      excluir_cadastro();
+      break;
+    case "3":
+      mod_inf();
+      break;
+    case "4":
+      exibir_infos();
+      break;
+    case "5":
+      console.log("SAINDO DO PROGRAMA");
+      break;
+    default:
+      break;
+  }
 }
+
 // console.log(llivros);
