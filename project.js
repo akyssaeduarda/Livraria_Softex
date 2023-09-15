@@ -66,96 +66,157 @@ function excluir_cadastro() {
   } while (livro_excluido === false);
 }
 
+//função para modificar as informações dos livros
 function mod_inf() {
-  let nome = readline.question("Qual o nome do livro? ");
-  for (const a of llivros) {
-    if (nome === a.nome) {
-      console.log(`
-            1 - Nome: ${a.nome}
-            2 - genero: ${a.genero} 
-            3 - preco: ${a.preco}
-            4 - autor: ${a.autor}
-            5 - Ano de publicacao: ${a.anopubl}
-            6 - Editora: ${a.editora}
-            7 - isbn: ${a.isbn}
-            8 - estoque: ${a.estoque}
-            `);
+  let modificando_info = true;
+
+  do {
+    let livro_modificado;
+    let livro_encontrado = false;
+    let nome = readline.question("Qual o nome do livro? ");
+
+    for (const a of llivros) {
+      if (nome === a.nome) {
+        livro_encontrado = true;
+        console.log(`Livro encontrado!
+        1 - Nome: ${a.nome}
+        2 - genero: ${a.genero}
+        3 - preco: ${a.preco}
+        4 - autor: ${a.autor}
+        5 - Ano de publicacao: ${a.anopubl}
+        6 - Editora: ${a.editora}
+        7 - isbn: ${a.isbn}
+        8 - estoque: ${a.estoque}
+        `);
+        livro_modificado = a;
+        let loop_opcao = false;
+        do {
+          let mod = readline.question("Qual opcao deseja modificar? ");
+          switch (mod) {
+            case "1":
+              loop_opcao = true;
+              let nnome = readline.question("Informe o novo nome: ");
+              for (const a of llivros) {
+                if (nome === a.nome) {
+                  a.nome = nnome;
+                }
+              }
+              break;
+
+            case "2":
+              loop_opcao = true;
+              let genero = readline.question("Informe o novo genero: ");
+              for (const a of llivros) {
+                if (nome === a.nome) {
+                  a.genero = genero;
+                }
+              }
+              break;
+            case "3":
+              loop_opcao = true;
+              let preco = readline.question("Informe o novo preco: ");
+              for (const a of llivros) {
+                if (nome === a.nome) {
+                  a.preco = preco;
+                }
+              }
+              break;
+
+            case "4":
+              loop_opcao = true;
+              let autor = readline.question("Informe o novo autor: ");
+              for (const a of llivros) {
+                if (nome === a.nome) {
+                  a.autor = autor;
+                }
+              }
+              break;
+
+            case "5":
+              loop_opcao = true;
+              let anopubl = readline.question(
+                "Informe o novo ano de publicacao: "
+              );
+              for (const a of llivros) {
+                if (nome === a.nome) {
+                  a.anopubl = anopubl;
+                }
+              }
+              break;
+
+            case "6":
+              loop_opcao = true;
+              let editora = readline.question(
+                "Informe o novo nome da editora: "
+              );
+              for (const a of llivros) {
+                if (nome === a.nome) {
+                  a.editora = editora;
+                }
+              }
+              break;
+
+            case "7":
+              loop_opcao = true;
+              let isbn = readline.question("Informe o novo indice: ");
+              for (const a of llivros) {
+                if (nome === a.nome) {
+                  a.isbn = isbn;
+                }
+              }
+              break;
+            case "8":
+              loop_opcao = true;
+              let estoque = readline.question("Informe o novo estoque: ");
+              for (const a of llivros) {
+                if (nome === a.nome) {
+                  a.estoque = estoque;
+                }
+              }
+              break;
+            default:
+              loop_opcao = false;
+              console.log(
+                "Erro, dado inválido. Por favor, insira um valor de 1 a 8"
+              );
+              break;
+          }
+        } while (loop_opcao === false);
+
+        console.log(`Livro modificado:
+            Nome: ${livro_modificado.nome}
+            genero: ${livro_modificado.genero}
+            preco: ${livro_modificado.preco}
+            autor: ${livro_modificado.autor}
+            Ano de publicacao: ${livro_modificado.anopubl}
+            Editora: ${livro_modificado.editora}
+            isbn: ${livro_modificado.isbn}
+            estoque: ${livro_modificado.estoque}
+        `);
+        let loop_continuar_modificando = false;
+        do {
+          let continuar_modificando = readline.question(`
+            Deseja modificar mais algum livro?
+            1 - Sim
+            2 - Nao
+            : `);
+          if (continuar_modificando === "1") {
+            loop_continuar_modificando = true;
+          } else if (continuar_modificando === "2") {
+            loop_continuar_modificando = true;
+            modificando_info = false;
+          } else {
+            loop_continuar_modificando = false;
+            console.log("Erro, dado inválido.");
+          }
+        } while (!loop_continuar_modificando);
+      }
     }
-  }
-  let mod = readline.question("Qual opção deseja modificar? ");
-  switch (mod) {
-    case "1":
-      let nnome = readline.question("Informe o novo nome: ");
-      for (const a of llivros) {
-        if (nome === a.nome) {
-          a.nome = nnome;
-        }
-      }
-      break;
 
-    case "2":
-      let genero = readline.question("Informe o novo genero: ");
-      for (const a of llivros) {
-        if (nome === a.nome) {
-          a.genero = genero;
-        }
-      }
-      break;
-    case "3":
-      let preco = readline.question("Informe o novo preco: ");
-      for (const a of llivros) {
-        if (nome === a.nome) {
-          a.preco = preco;
-        }
-      }
-      break;
-
-    case "4":
-      let autor = readline.question("Informe o novo autor: ");
-      for (const a of llivros) {
-        if (nome === a.nome) {
-          a.autor = autor;
-        }
-      }
-      break;
-
-    case "5":
-      let anopubl = readline.question("Informe o novo ano de publicacao: ");
-      for (const a of llivros) {
-        if (nome === a.nome) {
-          a.anopubl = anopubl;
-        }
-      }
-      break;
-
-    case "6":
-      let editora = readline.question("Informe o novo nome da editora: ");
-      for (const a of llivros) {
-        if (nome === a.nome) {
-          a.editora = editora;
-        }
-      }
-      break;
-
-    case "7":
-      let isbn = readline.question("Informe o novo indice: ");
-      for (const a of llivros) {
-        if (nome === a.nome) {
-          a.isbn = isbn;
-        }
-      }
-      break;
-    case "8":
-      let estoque = readline.question("Informe o novo estoque: ");
-      for (const a of llivros) {
-        if (nome === a.nome) {
-          a.estoque = estoque;
-        }
-      }
-      break;
-    default:
-      break;
-  }
+    if (livro_encontrado === false) {
+      console.log("Livro nao encontrado no banco de dados");
+    }
+  } while (modificando_info);
 }
 
 // console.log("=====MENU=====");
@@ -179,4 +240,4 @@ switch (opc) {
   default:
     break;
 }
-console.log(llivros[0]);
+// console.log(llivros);
