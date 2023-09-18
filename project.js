@@ -14,7 +14,7 @@ const llivros = [
     autor: "J.K Rowling",
     anopubl: 1997,
     editora: "ROSSO",
-    isbn: 1,
+    codigo_livro: 1,
     estoque: 5,
   },
   {
@@ -24,26 +24,18 @@ const llivros = [
     autor: "J.K George Orewll",
     anopubl: 1997,
     editora: "ROSSO",
-    isbn: 1,
+    codigo_livro: 1,
     estoque: 5,
   },
 ];
 
-
-
-
 // console.log("=====MENU=====");
-// console.log("--------------");
 // console.log("1 - novo cadastro");
 // console.log("2 - excluir cadastro");
 // console.log("3 - Modificar informacoes");
 // console.log("4 - Exibir informações")
-// console.log("5 - Sair")
-
-// implementações: 
-//                 opcao 2 - menu perguntado se deseja excluir outro livro ou voltar para o menu 
-//                 opcao 3 - 
-
+// console.log("5 - Venda")
+// console.log("6 - Sair")
 
 function info_menu(){
   console.log(`
@@ -94,4 +86,4 @@ while(acabou===false){
   }
 }
 
-// console.log(llivros);
+

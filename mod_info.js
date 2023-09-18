@@ -20,8 +20,8 @@ function mod_inf(llivros) {
           4 - autor: ${a.autor}
           5 - Ano de publicacao: ${a.anopubl}
           6 - Editora: ${a.editora}
-          7 - isbn: ${a.isbn}
-          8 - estoque: ${a.estoque}
+            - Cogido do livro: ${a.codigo_livro}
+          7 - estoque: ${a.estoque}
           `);
           livro_modificado = a;
           let loop_opcao = false;
@@ -92,17 +92,8 @@ function mod_inf(llivros) {
                   }
                 }
                 break;
-  
+
               case "7":
-                loop_opcao = true;
-                let isbn = readline.question("Informe o novo indice: ");
-                for (const a of llivros) {
-                  if (nome === a.nome) {
-                    a.isbn = isbn;
-                  }
-                }
-                break;
-              case "8":
                 loop_opcao = true;
                 let estoque = readline.question("Informe o novo estoque: ");
                 for (const a of llivros) {
@@ -114,7 +105,7 @@ function mod_inf(llivros) {
               default:
                 loop_opcao = false;
                 console.log(
-                  "Erro, dado inválido. Por favor, insira um valor de 1 a 8"
+                  "Erro, dado inválido. Por favor, insira um valor de 1 a 7"
                 );
                 break;
             }
@@ -123,20 +114,16 @@ function mod_inf(llivros) {
           console.log(`Livro modificado:
               Nome: ${livro_modificado.nome}
               genero: ${livro_modificado.genero}
-              preco: ${livro_modificado.preco}
+              preco: R$ ${livro_modificado.preco}
               autor: ${livro_modificado.autor}
               Ano de publicacao: ${livro_modificado.anopubl}
               Editora: ${livro_modificado.editora}
-              isbn: ${livro_modificado.isbn}
+              codigo do livro: ${livro_modificado.codigo_livro}
               estoque: ${livro_modificado.estoque}
           `);
           let loop_continuar_modificando = false;
           do {
-            let continuar_modificando = readline.question(`
-              Deseja modificar mais algum livro?
-              1 - Sim
-              2 - Nao
-              : `);
+            let continuar_modificando = readline.question("\nDeseja modificar mais algum livro? \n 1 - sim \n 2 - nao \n: ");
             if (continuar_modificando === "1") {
               loop_continuar_modificando = true;
             } else if (continuar_modificando === "2") {
