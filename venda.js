@@ -1,28 +1,5 @@
 const readline = require("readline-sync");
 
-const llivros = [
-    {
-      nome: "Harry Potter",
-      genero: "Fantasia",
-      preco: 40.0,
-      autor: "J.K Rowling",
-      anopubl: 1997,
-      editora: "ROSSO",
-      isbn: 1,
-      estoque: 5,
-    },
-    {
-      nome: "1994",
-      genero: "Ficcao",
-      preco: 40.0,
-      autor: "J.K George Orewll",
-      anopubl: 1997,
-      editora: "ROSSO",
-      isbn: 1,
-      estoque: 5,
-    },
-  ];
-
 function procurarLivro(nome, llivros) {
     let livro = null;
   for(i=0;i<llivros.length;i++){
@@ -104,4 +81,4 @@ function realizarVenda(llivros) {
   }
 }
 
-realizarVenda();
+module.exports = realizarVenda;
