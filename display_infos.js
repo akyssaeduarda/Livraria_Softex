@@ -2,6 +2,7 @@
 function exibir_infos(llivros) {
   for (i = 0; i < llivros.length; i++) {
     const livro = llivros[i];
+    console.log("=== Informações do Livro ===");
     console.log("Titulo: " + livro.nome);
     console.log("Genero: " + livro.genero);
     console.log("Preco: R$ " + livro.preco.toFixed(2));
