@@ -1,5 +1,4 @@
 const readline = require("readline-sync");
-let preco;
 var codigo_livro = 2;
 //função de cadastro
 function cadastro(llivros) {
@@ -11,13 +10,13 @@ function cadastro(llivros) {
     let preco;
     while (valor_correto == false) {
       try {
-        preco = readline.question("Informe o preço do livro: ");
+        preco = readline.question("Informe o preco do livro: ");
         // Tenta converter a entrada do usuário em um número
         preco = parseFloat(preco);
         // Mensagem de erro caso não seja um numero
         if (isNaN(preco)) {
           throw new Error(
-            "Preço inválido. Certifique-se de inserir um número válido."
+            "Preço inválido. Certifique-se de inserir um numero válido."
           );
         } else {
           valor_correto = true;
@@ -33,7 +32,7 @@ function cadastro(llivros) {
     valor_correto = false;
     while (valor_correto == false) {
       try {
-        Anop = readline.question("Informe o ano de publicação do livro: ");
+        Anop = readline.question("Informe o ano de publicacao do livro: ");
         // Tenta converter a entrada do usuário em um número
         Anop = parseInt(Anop);
 
@@ -94,7 +93,9 @@ function cadastro(llivros) {
 
     let validar_dado = true;
     do {
-      let cadastrar_novo_livro = readline.question("\nDeseja cadastrar novo livro? \n 1 - sim \n 2 - nao \n: ");
+      let cadastrar_novo_livro = readline.question(
+        "Deseja cadastrar novo livro? \n 1 - sim \n 2 - nao \n: "
+      );
       if (cadastrar_novo_livro === "1") {
         loop_cadastrar_livro = true;
         validar_dado = false;

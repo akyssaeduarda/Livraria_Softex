@@ -5,7 +5,7 @@ const mod_inf = require("./mod_info");
 const exibir_infos = require("./display_infos");
 const venda = require("./venda");
 
-
+// armazena os objetos cadastrados
 const llivros = [
   {
     nome: "Harry Potter",
@@ -21,10 +21,10 @@ const llivros = [
     nome: "1994",
     genero: "Ficcao",
     preco: 40.0,
-    autor: "J.K George Orewll",
+    autor: "George Orewll",
     anopubl: 1997,
     editora: "ROSSO",
-    codigo_livro: 1,
+    codigo_livro: 2,
     estoque: 5,
   },
 ];
@@ -37,7 +37,7 @@ const llivros = [
 // console.log("5 - Venda")
 // console.log("6 - Sair")
 
-function info_menu(){
+function info_menu() {
   console.log(`
   |=====================|
   |   LIVRARIA SOFTEX   |
@@ -51,16 +51,17 @@ function info_menu(){
   5 - VENDA
   6 - SAIR
   
-  `)
+  `);
 }
 
-acabou = false
-while(acabou===false){
-  info_menu()
+// loop principal onde todas as funções são são chamadas
+let acabou = false;
+while (acabou === false) {
+  info_menu();
   let opc = readline.question("Informe uma opcao: ");
 
-  if(opc=="6"){
-    acabou = true
+  if (opc == "6") {
+    acabou = true;
   }
   switch (opc) {
     case "1":
@@ -79,11 +80,9 @@ while(acabou===false){
       venda(llivros);
       break;
     case "6":
-      console.log("SAINDO DO PROGRAMA");
+      console.log("SAINDO DO PROGRAMA...");
       break;
     default:
       break;
   }
 }
-
-

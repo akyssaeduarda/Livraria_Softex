@@ -110,7 +110,8 @@ function mod_inf(llivros) {
                 break;
             }
           } while (loop_opcao === false);
-  
+
+          // exibindo o livro modificado
           console.log(`Livro modificado:
               Nome: ${livro_modificado.nome}
               genero: ${livro_modificado.genero}
@@ -121,13 +122,15 @@ function mod_inf(llivros) {
               codigo do livro: ${livro_modificado.codigo_livro}
               estoque: ${livro_modificado.estoque}
           `);
+          
           let loop_continuar_modificando = false;
+          // loop para verificar se o usuário deseja modificar mais algum livro
           do {
             let continuar_modificando = readline.question("\nDeseja modificar mais algum livro? \n 1 - sim \n 2 - nao \n: ");
             if (continuar_modificando === "1") {
               loop_continuar_modificando = true;
             } else if (continuar_modificando === "2") {
-              loop_continuar_modificando = true;
+              loop_continuar_modificando = true; 
               modificando_info = false;
             } else {
               loop_continuar_modificando = false;
