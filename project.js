@@ -29,43 +29,37 @@ const llivros = [
   },
 ];
 
-// console.log("=====MENU=====");
-// console.log("1 - novo cadastro");
-// console.log("2 - excluir cadastro");
-// console.log("3 - Modificar informacoes");
-// console.log("4 - Exibir informações")
-// console.log("5 - Venda")
-// console.log("6 - Sair")
-
 function info_menu() {
   console.log(`
-  |=====================|
-  |   LIVRARIA SOFTEX   |
-  |=====================|
-
-  =========MENU=========
+  |========================|
+  |    LIVRARIA SOFTEX     |
+  |========================|
+  ===========MENU===========
   1 - NOVO CADASTRO
   2 - EXCLUIR CADASTRO
   3 - MODIFICAR INFORMACOES
   4 - EXIBIR INFORMACOES
   5 - VENDA
   6 - SAIR
-  
+  =========================
   `);
 }
 
 // loop principal onde todas as funções são são chamadas
+let red = '\u001b[31m', 
+    reset = '\u001b[0m',
+    green = '\u001b[32m';
 let acabou = false;
 while (acabou === false) {
   info_menu();
-  let opc = readline.question("Informe uma opcao: ");
+  let opc = readline.question("  Informe uma opcao: ");
 
   if (opc == "6") {
     acabou = true;
   }
   switch (opc) {
     case "1":
-      cadastro(llivros);
+      cadastro(llivros, red, reset, green);
       break;
     case "2":
       excluir_cadastro(llivros);

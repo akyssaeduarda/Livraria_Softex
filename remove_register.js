@@ -7,12 +7,21 @@ function excluir_cadastro(llivros) {
 
   // inicio do loop principal
   do {
+    console.clear()
+
+    //buscar na lista dos livros com base nas letras inseridas (Precisa terminar)
+    let buscar_nome = readline.question("Informe o titulo a ser buscado: ")
+    
+    let listar_livros = llivros.filter(llivros => llivros.nome === buscar_nome)
+
+    console.log(listar_livros)
+
     titulo_excluir = readline.question(
       "Informe o título do livro a ser excluido: "
     );
-    let verific_codigo_livro = readline.questionInt(
-      "infome o codigo do livro a ser excluido: "
-    );
+     let verific_codigo_livro = readline.questionInt(
+       "infome o codigo do livro a ser excluido: "
+     );
 
     // loop para percorrer a lista de objetos
     for (i = 0; i < llivros.length; i++) {
@@ -39,7 +48,7 @@ function excluir_cadastro(llivros) {
         do {
           // recebendo resposta e armzenando na variavel
           let confirmar_exclusao = readline.question(
-            "\nTem certeza que deseja excluir o livro? \n 1 - sim \n 2 - nao \n: "
+            `\nTem certeza que deseja excluir o livro ${llivros[i].nome}? \n 1 - sim \n 2 - nao \n: `
           );
 
           // condicional para verificar a resposta o usuário
