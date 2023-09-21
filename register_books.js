@@ -261,7 +261,7 @@ function cadastro(llivros, red, reset, green) {
               ${reset}
               NOME: ${livroc.nome}
               GENERO: ${livroc.genero}
-              PREÇO: R$ ${livroc.preco.toFixed(2)}
+              PREÇO: R$ ${livroc.preco}
               AUTOR: ${livroc.autor}
               ANO DE PUBLICAÇÃO: ${livroc.anopubl}
               EDITORA: ${livroc.editora}

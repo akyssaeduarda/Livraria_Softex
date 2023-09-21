@@ -23,7 +23,7 @@ function excluir_cadastro(llivros, red, reset, green, purple ) {
             console.log(purple + " \n\t-- LIVRO A SER EXCLUIDO --\n"); 
             console.log(`\t${reset}LIVRO: ${llivros[i].nome}`);
             console.log(`\tGÊNERO: ${llivros[i].genero}`);
-            console.log(`\tPREÇO: R$ ${llivros[i].preco.toFixed(2)}`);
+            console.log(`\tPREÇO: R$ ${llivros[i].preco}`);
             console.log(`\tAUTOR: ${llivros[i].autor}`);
             console.log(`\tANO DE PUBLICAÇÃO: ${llivros[i].anopubl}`);
             console.log(`\tEDITORA: ${llivros[i].editora}`);
@@ -114,7 +114,7 @@ function excluir_cadastro(llivros, red, reset, green, purple ) {
           for (let a of filtro) {
             console.log(`\tLIVRO: ${a.nome}`);
             console.log(`\tGÊNERO: ${a.genero}`);
-            console.log(`\tPREÇO: R$ ${a.preco.toFixed(2)}`);
+            console.log(`\tPREÇO: R$ ${a.preco}`);
             console.log(`\tAUTOR: ${a.autor}`);
             console.log(`\tANO DE PUBLICAÇÃO: ${a.anopubl}`);
             console.log(`\tEDITORA: ${a.editora}`);

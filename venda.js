@@ -35,6 +35,9 @@ function realizarVenda(llivros, red, reset, green, purple) {
     if (!livro) { //caso o valor da variavel 'livro' for um array vazio('falsy'), será exibido uma mensagem de erro para o usuário
       console.log(red + "\nErro! Livro não encontrado no banco de dados.");
       continue;
+    }else if(llivros[i].estoque==0){
+      console.log(red +"\nEste livro não há exemplares disponíveis.")
+      continue;
     }
 
     console.log(` 
@@ -77,7 +80,7 @@ function realizarVenda(llivros, red, reset, green, purple) {
 
       const valorTotal = calcularValorTotal(carrinho); //chamando a função para calcular o total da venda
       console.log(`
-      Valor Total da Compra: R$ ${valorTotal.toFixed(2)}
+      Valor Total da Compra: R$ ${valorTotal}
       ${green}Até a próxima venda!${reset}
       `);
 

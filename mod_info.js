@@ -173,7 +173,7 @@ function mod_inf(llivros, red, reset, green, purple) {
           for (let a of filtro) {
             console.log(`\tLIVRO: ${a.nome}`);
             console.log(`\tGÊNERO: ${a.genero}`);
-            console.log(`\tPREÇO: R$ ${a.preco.toFixed(2)}`);
+            console.log(`\tPREÇO: R$ ${a.preco}`);
             console.log(`\tAUTOR: ${a.autor}`);
             console.log(`\tANO DE PUBLICAÇÃO: ${a.anopubl}`);
             console.log(`\tEDITORA: ${a.editora}`);
