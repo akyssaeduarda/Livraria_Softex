@@ -230,7 +230,7 @@ function cadastro(llivros, red, reset, green) {
 
     function gerador_id(){
       let id_ger;
-      id_ger = parseInt(`${ano}${llivros[llivros.length-1]}`)
+      id_ger = parseInt(`${ano}${7}`)
       return id_ger
     }
     
