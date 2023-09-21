@@ -1,12 +1,12 @@
 const readline = require("readline-sync");
 
 // função para excluir cadastro do livro
-function excluir_cadastro(llivros, red, reset, green) {
+function excluir_cadastro(llivros, red, reset, green, purple ) {
   // inicio do loop principal
   let loop_excluir_cadastro = true,
   achou_livro = false;
   do {
-    
+    templateRemove() //tamplate string 
     fazerUmaBusca(); //função para chamar a busca
     do {
       //loop de exclusão
@@ -20,16 +20,15 @@ function excluir_cadastro(llivros, red, reset, green) {
          
           if (llivros[i].nome == titulo_excluir) {
             // o objeto é retornado para que o usuário possa verificar se é esse mesmo que ele quer excluir
-            console.log(`\nLivro a ser excluido: 
-            Nome: ${llivros[i].nome}
-            genero: ${llivros[i].genero}
-            preco: R$ ${llivros[i].preco.toFixed(2)}
-            autor: ${llivros[i].autor}
-            Ano de publicacao: ${llivros[i].anopubl}
-            Editora: ${llivros[i].editora}
-            Id: ${llivros[i].id}
-            estoque: ${llivros[i].estoque}
-          `);
+            console.log(purple + " \n\t-- LIVRO A SER EXCLUIDO --\n"); 
+            console.log(`\t${reset}LIVRO: ${llivros[i].nome}`);
+            console.log(`\tGÊNERO: ${llivros[i].genero}`);
+            console.log(`\tPREÇO: R$ ${llivros[i].preco.toFixed(2)}`);
+            console.log(`\tAUTOR: ${llivros[i].autor}`);
+            console.log(`\tANO DE PUBLICAÇÃO: ${llivros[i].anopubl}`);
+            console.log(`\tEDITORA: ${llivros[i].editora}`);
+            console.log(`\tID: ${llivros[i].id}`);
+            console.log(`\tESTOQUE: ${llivros[i].estoque}`);
 
             do {
               // inicio do loop para verificar se o usuário realmente deseja excluir o cadastro do livro
@@ -120,7 +119,7 @@ function excluir_cadastro(llivros, red, reset, green) {
             console.log(`\tANO DE PUBLICAÇÃO: ${a.anopubl}`);
             console.log(`\tEDITORA: ${a.editora}`);
             console.log(`\tID: ${a.id}`);
-            console.log(`\tEDITORA: ${a.estoque}`);
+            console.log(`\tESTOQUE: ${a.estoque}`);
             console.log(`-----------------------------------`);
           }
           loop_busca = false;
@@ -129,6 +128,13 @@ function excluir_cadastro(llivros, red, reset, green) {
         console.error(`\n${red} Erro: ${error.message}`);
       }
     } while (loop_busca);
+  }
+  function templateRemove() {
+    console.log(`\n
+    ---------------------------------------
+                EXCLUIR CADASTRO 
+    ---------------------------------------
+    `);
   }
 }
 

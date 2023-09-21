@@ -89,7 +89,8 @@ function info_menu() {
 // loop principal onde todas as funções são são chamadas
 let red = '\u001b[31m', 
     reset = '\u001b[0m',
-    green = '\u001b[32m';
+    green = '\u001b[32m',
+    purple = '\u001b[34m';
 let acabou = false;
 while (acabou === false) {
   info_menu();
@@ -100,19 +101,24 @@ while (acabou === false) {
   }
   switch (opc) {
     case "1":
+      console.clear()
       cadastro(llivros, red, reset, green);
       break;
     case "2":
-      excluir_cadastro(llivros, red, reset, green);
+      console.clear()
+      excluir_cadastro(llivros, red, reset, green, purple);
       break;
     case "3":
-      mod_inf(llivros);
+      console.clear()
+      mod_inf(llivros, red, reset, green, purple);
       break;
     case "4":
-      exibir_infos(llivros);
+      console.clear()
+      exibir_infos(llivros, reset, purple);
       break;
     case "5":
-      venda(llivros);
+      console.clear()
+      venda(llivros, red, reset, green, purple);
       break;
     case "6":
       console.log("SAINDO DO PROGRAMA...");

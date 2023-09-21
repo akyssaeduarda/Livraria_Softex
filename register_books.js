@@ -34,9 +34,7 @@ function cadastro(llivros, red, reset, green) {
           let genero1
     do {  
           
-          console.log(`
-          --- Lista de generos ---
-          `);
+          console.log(`\n--- Lista de generos ---`);
 
           for(let a of generos){
               teste = false
@@ -105,10 +103,7 @@ function cadastro(llivros, red, reset, green) {
           } while (genero1.length<1||teste1)
         
         do{
-        perg1 = parseInt(readline.question(`\nDeseja inserir mais generos? 
-        1 - sim
-        2 - não
-        `))
+        perg1 = parseInt(readline.question(`\n- Deseja inserir mais generos? \n 1 - sim \n 2 - nao \n: `))
         switch (perg1) {
           case 1:
             verif_perg1=true
@@ -275,16 +270,17 @@ function cadastro(llivros, red, reset, green) {
     let validar_dado = true;
     do {
       let cadastrar_novo_livro = readline.question(
-        `\n${reset}Deseja cadastrar novo livro? \n 1 - sim \n 2 - nao \n : `
+        `\n${reset}- Deseja cadastrar novo livro? \n 1 - sim \n 2 - nao \n : `
       );
       if (cadastrar_novo_livro === "1") {
+        console.clear();
         loop_cadastrar_livro = true;
         validar_dado = false;
-        console.clear();
       } else if (cadastrar_novo_livro === "2") {
+        sair = readline.keyIn("\nPRESSIONE QUALQUER TECLA PARA O MENU...")
+        console.clear();
         loop_cadastrar_livro = false;
         validar_dado = false;
-        console.clear();
       } else {
         console.log(`\n${red}Erro! dado invalido. `);
         validar_dado = true;
