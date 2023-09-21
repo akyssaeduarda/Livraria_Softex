@@ -9,7 +9,7 @@ function exibir_infos(llivros) {
     console.log("Autor: " + livro.autor);
     console.log("Ano de Publicacao: " + livro.anopubl);
     console.log("Editora: " + livro.editora);
-    console.log("Codigo do livro: " + livro.codigo_livro);
+    console.log("ID: " + livro.id);
     console.log("Estoque: " + livro.estoque);
     console.log();
   }

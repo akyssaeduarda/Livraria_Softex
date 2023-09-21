@@ -20,7 +20,7 @@ function mod_inf(llivros) {
           4 - autor: ${a.autor}
           5 - Ano de publicacao: ${a.anopubl}
           6 - Editora: ${a.editora}
-            - Cogido do livro: ${a.codigo_livro}
+            - ID: ${a.id}
           7 - estoque: ${a.estoque}
           `);
           livro_modificado = a;
@@ -119,7 +119,7 @@ function mod_inf(llivros) {
               autor: ${livro_modificado.autor}
               Ano de publicacao: ${livro_modificado.anopubl}
               Editora: ${livro_modificado.editora}
-              codigo do livro: ${livro_modificado.codigo_livro}
+              Id: ${livro_modificado.id}
               estoque: ${livro_modificado.estoque}
           `);
           

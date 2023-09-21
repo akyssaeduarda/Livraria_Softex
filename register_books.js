@@ -1,30 +1,33 @@
 const readline = require("readline-sync");
-const generos = [{1:"romance"},{2:"Suspense"},{3:"ficcao"},{4:"filosofia"}]
-function gerador_codigo(){
-
+const generos = [
+  { 1: "romance" },
+  { 2: "Suspense" },
+  { 3: "ficcao" },
+  { 4: "filosofia" },
+];
+function gerador_codigo() {
+  // funcao para gerar um codigo para o livro (em construção)
 }
 //função de cadastro
 function cadastro(llivros, red, reset, green) {
-  
   let loop_cadastrar_livro = true;
   do {
-    templateCadastro()
+    templateCadastro();
     let nome = readline.question("\n- Informe o nome do livro: ");
     console.log(`
     --- Lista de generos ---
     
     `);
-    for(let i = 0;i<generos.length;i++){
-          console.log(`
-          ${i+1} - ${generos[i]}
-          `);
-        }
+    for (let i = 0; i < generos.length; i++) {
+      console.log(`
+          ${i + 1} - ${generos[i]}`);
+    }
     let genero = readline.question("\n- Informe o genero do livro: ");
     let valor_correto = false;
     let preco;
     while (valor_correto == false) {
       try {
-        preco = readline.question(reset +"\n- Informe o preco do livro: ");
+        preco = readline.question(reset + "\n- Informe o preco do livro: ");
         // Tenta converter a entrada do usuário em um número
         preco = parseFloat(preco);
         // Mensagem de erro caso não seja um numero
@@ -46,7 +49,9 @@ function cadastro(llivros, red, reset, green) {
     valor_correto = false;
     while (valor_correto == false) {
       try {
-        Anop = readline.question(`\n${reset}- Informe o ano de publicacao do livro: `);
+        Anop = readline.question(
+          `\n${reset}- Informe o ano de publicacao do livro: `
+        );
         // Tenta converter a entrada do usuário em um número
         Anop = parseInt(Anop);
 
@@ -54,10 +59,8 @@ function cadastro(llivros, red, reset, green) {
           throw new Error(
             "Ano inválido. Certifique-se de inserir um número válido."
           );
-        }else if(Anop > 9999){
-          throw new Error(
-            "Ano inválido. Valor permitido em até 4 digitos."
-          );
+        } else if (Anop > 9999) {
+          throw new Error("Ano inválido. Valor permitido em até 4 digitos.");
         } else {
           valor_correto = true;
         }
@@ -65,12 +68,14 @@ function cadastro(llivros, red, reset, green) {
         console.error(`\n${red}Erro: ${error.message}`);
       }
     }
-    codigo_livro++;
+    id++;
     let estoque;
     valor_correto = false;
     while (valor_correto == false) {
       try {
-        estoque = readline.question(`\n${reset}- Informe a quantidade em estoque: `);
+        estoque = readline.question(
+          `\n${reset}- Informe a quantidade em estoque: `
+        );
         // Tenta converter a entrada do usuário em um número
         estoque = parseInt(estoque);
 
@@ -92,7 +97,7 @@ function cadastro(llivros, red, reset, green) {
       autor: autor,
       anopubl: Anop,
       editora: editora,
-      codigo_livro: codigo_livro,
+      id: id,
       estoque: estoque,
     };
     llivros.push(livroc);
@@ -107,7 +112,7 @@ function cadastro(llivros, red, reset, green) {
               AUTOR: ${livroc.autor}
               ANO DE PUBLICAÇÃO: ${livroc.anopubl}
               EDITORA: ${livroc.editora}
-              CODIGO DO LIVRO: ${livroc.codigo_livro}
+              ID: ${livroc.id}
               ESTOQUE: ${livroc.estoque}
     ---------------------------------------`);
 
@@ -119,11 +124,11 @@ function cadastro(llivros, red, reset, green) {
       if (cadastrar_novo_livro === "1") {
         loop_cadastrar_livro = true;
         validar_dado = false;
-        console.clear()
+        console.clear();
       } else if (cadastrar_novo_livro === "2") {
         loop_cadastrar_livro = false;
         validar_dado = false;
-        console.clear()
+        console.clear();
       } else {
         console.log(`\n${red}Erro! dado invalido. `);
         validar_dado = true;
@@ -132,11 +137,11 @@ function cadastro(llivros, red, reset, green) {
   } while (loop_cadastrar_livro);
 }
 
-function templateCadastro(){
+function templateCadastro() {
   console.log(`\n
   ---------------------------------------
               CADASTRO LIVRO
   ---------------------------------------
-  `)
+  `);
 }
 module.exports = cadastro;
