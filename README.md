@@ -56,7 +56,7 @@ Catálogo de Livros: Exibe a lista completa de livros disponíveis na livraria.
 Vendas de Livros: Permite a realização de vendas, registrando os exemplares vendidos e atualizando o estoque.
 ```
 
-### OOrganização do código
+### Organização do código
 
 O código do projeto está organizado em módulos separados para cada funcionalidade principal, seguindo boas práticas de desenvolvimento de software.
 
