@@ -31,7 +31,7 @@ const llivros = [
     nome: "a revolução dos bichos",
     genero: "ficcao",
     preco: 15.0,
-    autor: "george orwell",
+    // autor: "george orwell",
     anopubl: 1998,
     editora: "rocco",
     id: 20233,
