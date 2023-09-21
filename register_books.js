@@ -4,7 +4,7 @@ let ano = new Date().getFullYear()
 
 //função de cadastro
 function cadastro(llivros, red, reset, green) {
-  let nome,perg1,verif_perg1,Verif2_perg1,teste,gen_nao_encontrado,novo_genero, ver_nome
+  let nome,perg1,verif_perg1,Verif2_perg1,teste,gen_nao_encontrado,novo_genero, ver_nome,t
   let loop_cadastrar_livro = true
   let contador = 7
   do {
@@ -29,18 +29,20 @@ function cadastro(llivros, red, reset, green) {
           }
           } while(nome.length<1||ver_nome)
 
-          let cont_op_adc = []
-          let Cont_generos =[]
+          
+          let ContagemGen =[]
           let genero1
+          let contagemOP = [] 
     do {  
           
+             
           console.log(`
           --- Lista de generos ---
           `);
 
           for(let a of generos){
               teste = false
-                for (const i of Cont_generos) {
+                for (const i of ContagemGen) {
                   ;
                     if(a[1]==i){
                       teste = true;
@@ -63,16 +65,17 @@ function cadastro(llivros, red, reset, green) {
             }
           teste1=false
           genero1 = ""
-          genero1 = readline.question(reset + "\n- Informe o genero do livro: ").toLowerCase()
+          genero1 = readline.question(reset + "\n- Informe o genero do livro: ").toLowerCase();
           cont2++
           if(genero1.length<1){
           gen_nao_encontrado = false
           }else{
             gen_nao_encontrado=true
           }
-          op_invalida=false
-          for (const a of cont_op_adc) {
-            if(a==genero1){
+          op_invalida=false;
+
+          for (let i=0;i<contagemOP.length;i++){
+            if(contagemOP[i] == genero1){
                 console.log(`\n${red} - Escolha uma opcao valida`);
                 gen_nao_encontrado=false
                 op_invalida = true
@@ -84,9 +87,9 @@ function cadastro(llivros, red, reset, green) {
                 break
               }
               if(i[0]==genero1){
-              gen_nao_encontrado = false
-              Cont_generos.push(i[1])
-              cont_op_adc.push(i[0])
+              gen_nao_encontrado = false;
+              ContagemGen.push(i[1]);
+              contagemOP.push(i[0])
               }
           }
           if(gen_nao_encontrado){
@@ -95,8 +98,8 @@ function cadastro(llivros, red, reset, green) {
                   genero1 = readline.question(`\n- Informe o nome do genero a ser adicionado: `).toLowerCase()
                   novo_genero=[(generos[generos.length-1][0]+1), genero1]
                   generos.push(novo_genero)
-                  cont_op_adc=novo_genero[0]
-                  Cont_generos.push(genero1)
+                  contagemOP=novo_genero[0]
+                  ContagemGen.push(genero1)
               }else{
                   console.log(`\n ${red}- Opcao nao encontrada. Informe uma opcao numerica referente ao genero escolhido`);
                   teste1=true
