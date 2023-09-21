@@ -3,8 +3,10 @@ const readline = require("readline-sync");
 // função para excluir cadastro do livro
 function excluir_cadastro(llivros, red, reset, green) {
   // inicio do loop principal
-  let loop_excluir_cadastro = true;
+  let loop_excluir_cadastro = true,
+  achou_livro = false;
   do {
+    
     fazerUmaBusca(); //função para chamar a busca
     do {
       //loop de exclusão
@@ -15,7 +17,7 @@ function excluir_cadastro(llivros, red, reset, green) {
         // loop para percorrer a lista de objetos
         for (i = 0; i < llivros.length; i++) {
           // se o nome e o código inserido "baterem" com o nome e código cadastrado na lista de objetos
-
+         
           if (llivros[i].nome == titulo_excluir) {
             // o objeto é retornado para que o usuário possa verificar se é esse mesmo que ele quer excluir
             console.log(`\nLivro a ser excluido: 
@@ -39,19 +41,23 @@ function excluir_cadastro(llivros, red, reset, green) {
                 // caso a resposta seja positiva ("1"), o livro é removido usando o método 'splice()'e sai do loop
                 llivros.splice(i, 1);
                 console.log(`\n${green}Exclusão CONCLUIDA com sucesso`);
+                achou_livro = true;
                 break;
               } else if (confirmar_exclusao === "2") {
                 // caso seja negativa, sai do loop e segue para a pegunta se 'deseja excluir outro livro'
                 console.log(`\n${green}Exclusão CANCELADA com sucesso.`);
+                achou_livro = true;
                 break;
               } else {
                 // caso o dado não for '1' ou '2', o usuário recebe uma resposta "dado invalido" e o loop volta para o começo da verificação
                 console.log(`${red}Dado invalido!`);
+                achou_livro = true
               }
             } while (true);
-          } else {
-            throw new Error("Nome do livro invalido");
           }
+        }
+        if(achou_livro === false){
+          throw new Error("Nome do livro invalido");
         }
         break;
       } catch (error) {
@@ -68,6 +74,7 @@ function excluir_cadastro(llivros, red, reset, green) {
       if (excluir_novo_cadastro === "1") {
         // caso a resposta seja positiva, encerra o loop de verificação(loop_excluir_cadastro) e continua com o loop principal(livro_excluido)
         loop_excluir_cadastro = true;
+        achou_livro = false
         console.clear()
         break
       } else if (excluir_novo_cadastro === "2") {
@@ -94,7 +101,7 @@ function excluir_cadastro(llivros, red, reset, green) {
         ).toLowerCase();
         if (!busca) {
           throw new Error("O valor fornecido não pode ser nulo.");
-        } else {
+        }else {
           const filterItems = (busca) => {
             return llivros.filter(
               (a) => a.nome.indexOf(busca) > -1 || a.autor.indexOf(busca) > -1
@@ -102,7 +109,9 @@ function excluir_cadastro(llivros, red, reset, green) {
           };
 
           let filtro = filterItems(busca);
-
+          if(filtro.length === 0){
+            throw new Error("autor e/ou livro não encontrado no banco de dados");
+          }
           console.log("\n\t-- RESULTADO DA BUSCA --\n");
           for (let a of filtro) {
             console.log(`\tLIVRO: ${a.nome}`);
