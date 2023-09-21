@@ -1,6 +1,7 @@
 const readline = require("readline-sync");
 const generos = [[1,"romance"],[2,"suspense"],[3,"ficcao"],[4,"filosofia"]]
 let ano = new Date().getFullYear()
+
 //função de cadastro
 function cadastro(llivros, red, reset, green) {
   let nome,perg1,verif_perg1,Verif2_perg1,teste,gen_nao_encontrado,novo_genero
@@ -227,6 +228,12 @@ function cadastro(llivros, red, reset, green) {
       }
     } while (teste5) 
 
+    function gerador_id(){
+      let id_ger;
+      id_ger = parseInt(`${ano}${llivros[llivros.length-1]}`)
+      return id_ger
+    }
+    
     let livroc = {
       nome: nome,
       genero: genero1,
@@ -234,11 +241,11 @@ function cadastro(llivros, red, reset, green) {
       autor: autor,
       anopubl: Anop,
       editora: editora,
-      // id: gerador_codigo(),
+      id: gerador_id(),
       estoque: estoque,
     };
     llivros.unshift(livroc);
-    console.log(llivros);
+    llivros[llivros.length-1]=llivros[llivros.length-1]+1
 
     console.log(`\n
     ---------------------------------------
