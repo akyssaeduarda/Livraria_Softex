@@ -4,8 +4,9 @@ let ano = new Date().getFullYear()
 
 //função de cadastro
 function cadastro(llivros, red, reset, green) {
-  let nome,perg1,verif_perg1,Verif2_perg1,teste,gen_nao_encontrado,novo_genero
+  let nome,perg1,verif_perg1,Verif2_perg1,teste,gen_nao_encontrado,novo_genero, ver_nome
   let loop_cadastrar_livro = true
+  let contador = 7
   do {
     templateCadastro()
           let cont1=0
@@ -14,9 +15,19 @@ function cadastro(llivros, red, reset, green) {
               console.log(`
               Inserir um nome é obrigatorio`);
             }
-          nome = readline.question(`\n- Informe o nome do livro: `).toLowerCase();
+          nome = readline.question(`\n${reset}- Informe o nome do livro: `).toLowerCase();
           cont1++
-          } while(nome.length<1)
+          ver_nome=false
+          for (const a of llivros) {
+            if(a.nome==nome){
+              console.log(`\n${red}- Esse nome já existe no banco de dados`);
+              ver_nome = true
+              break;
+            }else{
+              ver_nome = false
+            }
+          }
+          } while(nome.length<1||ver_nome)
 
           let cont_op_adc = []
           let Cont_generos =[]
@@ -79,7 +90,7 @@ function cadastro(llivros, red, reset, green) {
               }
           }
           if(gen_nao_encontrado){
-              if(genero1===0){
+              if(genero1==0){
                   novo_genero=""
                   genero1 = readline.question(`\n- Informe o nome do genero a ser adicionado: `).toLowerCase()
                   novo_genero=[(generos[generos.length-1][0]+1), genero1]
@@ -230,7 +241,7 @@ function cadastro(llivros, red, reset, green) {
 
     function gerador_id(){
       let id_ger;
-      id_ger = parseInt(`${ano}${llivros[llivros.length-1]}`)
+      id_ger = parseInt(`${ano}${contador}`)
       return id_ger
     }
     
@@ -245,7 +256,7 @@ function cadastro(llivros, red, reset, green) {
       estoque: estoque,
     };
     llivros.unshift(livroc);
-    llivros[llivros.length-1]=llivros[llivros.length-1]+1
+    contador++
 
     console.log(`\n
     ---------------------------------------
