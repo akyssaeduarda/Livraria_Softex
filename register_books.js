@@ -3,20 +3,21 @@ const generos = [[1,"romance"],[2,"suspense"],[3,"ficcao"],[4,"filosofia"]]
 let ano = new Date().getFullYear()
 //função de cadastro
 function cadastro(llivros, red, reset, green) {
-  let nome,perg1,verif_perg1,Verif2_perg1,teste,gen_encontrado,novo_genero
-  let contagem
+  let nome,perg1,verif_perg1,Verif2_perg1,teste,gen_nao_encontrado,novo_genero
   let loop_cadastrar_livro = true
   do {
     templateCadastro()
           let cont1=0
           do {
+          if(cont1>2){
+              console.log(`
+              Inserir um nome é obrigatorio`);
+            }
           nome = readline.question(`\n- Informe o nome do livro: `);
           cont1++
-          if(cont1>2){
-            console.log(`
-            Inserir um nome é obrigatorio`);
-          }
           } while(nome.length<1)
+
+          let cont_op_adc = []
           let Cont_generos =[]
           let genero1
     do {  
@@ -40,33 +41,52 @@ function cadastro(llivros, red, reset, green) {
                 console.log(`${a[0]} - ${a[1]}`);
               }
           console.log(`0 - Outro`);
-
+          let op_invalida = false
           let cont2 =0
           let teste1
-          do {
+      do {
             if(cont2>2){
-              console.log(`\n- escolha uma opção numerica referente ao genero do livro`);
-              cont2=1
+              console.log(`\n${red}- escolha uma opção numerica referente ao genero do livro`);
+              cont2=0
             }
-            teste1=false
+          teste1=false
+          genero1 = ""
           genero1 = readline.question(reset + "\n- Informe o genero do livro: ")
           cont2++
-          gen_encontrado = true
+          if(genero1.length<1){
+          gen_nao_encontrado = false
+          }else{
+            gen_nao_encontrado=true
+          }
+          op_invalida=false
+          for (const a of cont_op_adc) {
+            if(a==genero1){
+                console.log(`\n${red} - Escolha uma opcao valida`);
+                gen_nao_encontrado=false
+                op_invalida = true
+                teste1=true
+            }
+          }
           for(let i of generos){
+              if(op_invalida){
+                break
+              }
               if(i[0]==genero1){
-              gen_encontrado = false
+              gen_nao_encontrado = false
               Cont_generos.push(i[1])
+              cont_op_adc.push(i[0])
               }
           }
-          if(gen_encontrado){
-              if(genero1==0){
+          if(gen_nao_encontrado){
+              if(genero1===0){
                   novo_genero=""
                   genero1 = readline.question(`\n- Informe o nome do genero a ser adicionado: `)
                   novo_genero=[(generos[generos.length-1][0]+1), genero1]
                   generos.push(novo_genero)
+                  cont_op_adc=novo_genero[0]
                   Cont_generos.push(genero1)
               }else{
-                  console.log(`\n ${green}- Opcao nao encontrada. Informe uma opcao numerica referente ao genero escolhido`);
+                  console.log(`\n ${red}- Opcao nao encontrada. Informe uma opcao numerica referente ao genero escolhido`);
                   teste1=true
               }
           }
@@ -217,7 +237,8 @@ function cadastro(llivros, red, reset, green) {
       // id: gerador_codigo(),
       estoque: estoque,
     };
-    llivros.push(livroc);
+    llivros.unshift(livroc);
+    console.log(llivros);
 
     console.log(`\n
     ---------------------------------------
