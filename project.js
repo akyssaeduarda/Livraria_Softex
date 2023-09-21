@@ -14,7 +14,7 @@ const llivros = [
     autor: "j.k rowling",
     anopubl: 1997,
     editora: "rosso",
-    id: 1,
+    id: 20231,
     estoque: 5,
   },
   {
@@ -24,7 +24,7 @@ const llivros = [
     autor: "george Orewll",
     anopubl: 1997,
     editora: "rosso",
-    id: 2,
+    id: 20232,
     estoque: 8,
   },
   {
@@ -34,7 +34,7 @@ const llivros = [
     autor: "george orewll",
     anopubl: 1998,
     editora: "rosso",
-    id: 3,
+    id: 20233,
     estoque: 10,
   },
   {
@@ -44,7 +44,7 @@ const llivros = [
     autor: "dan brow",
     anopubl: "2001",
     editora: "letras",
-    id: 4,
+    id: 20234,
     estoque: 50,
   },
   {
@@ -54,7 +54,7 @@ const llivros = [
     autor: "j.k rowling",
     anopubl: 1998,
     editora: "rosso",
-    id: 5,
+    id: 20235,
     estoque: 10,
   },
   {
@@ -64,9 +64,10 @@ const llivros = [
     autor: "hara",
     anopubl: 2010,
     editora: "rosso",
-    id: 6,
+    id: 20236,
     estoque: 10,
   },
+  7
 ];
 
 function info_menu() {
