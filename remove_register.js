@@ -107,7 +107,6 @@ function excluir_cadastro(llivros, red, reset, green) {
               (a) => a.nome.indexOf(busca) > -1 || a.autor.indexOf(busca) > -1
             );
           };
-
           let filtro = filterItems(busca);
           if(filtro.length === 0){
             throw new Error("autor e/ou livro não encontrado no banco de dados");

@@ -14,7 +14,7 @@ function cadastro(llivros, red, reset, green) {
               console.log(`
               Inserir um nome é obrigatorio`);
             }
-          nome = readline.question(`\n- Informe o nome do livro: `);
+          nome = readline.question(`\n- Informe o nome do livro: `).toLowerCase();
           cont1++
           } while(nome.length<1)
 
@@ -52,7 +52,7 @@ function cadastro(llivros, red, reset, green) {
             }
           teste1=false
           genero1 = ""
-          genero1 = readline.question(reset + "\n- Informe o genero do livro: ")
+          genero1 = readline.question(reset + "\n- Informe o genero do livro: ").toLowerCase()
           cont2++
           if(genero1.length<1){
           gen_nao_encontrado = false
@@ -81,7 +81,7 @@ function cadastro(llivros, red, reset, green) {
           if(gen_nao_encontrado){
               if(genero1===0){
                   novo_genero=""
-                  genero1 = readline.question(`\n- Informe o nome do genero a ser adicionado: `)
+                  genero1 = readline.question(`\n- Informe o nome do genero a ser adicionado: `).toLowerCase()
                   novo_genero=[(generos[generos.length-1][0]+1), genero1]
                   generos.push(novo_genero)
                   cont_op_adc=novo_genero[0]
@@ -143,7 +143,7 @@ function cadastro(llivros, red, reset, green) {
     let teste2 = true
     do{
     try {
-      autor = readline.question(reset + "\n- Informe o autor do livro: ");
+      autor = readline.question(reset + "\n- Informe o autor do livro: ").toLowerCase();
       if(autor.length<1){
         throw new Error(
            "Nome não inserido. Informe corretamente o nome do(a) autor(a)"
@@ -165,7 +165,7 @@ function cadastro(llivros, red, reset, green) {
     let teste3 = true
     do{
     try {
-      editora = readline.question(reset + "\n- Informe o nome da editora do livro: ");
+      editora = readline.question(reset + "\n- Informe o nome da editora do livro: ").toLowerCase();
       if(editora.length<1){
         throw new Error(
            "Nome não inserido. Informe corretamente o nome da editora"

@@ -67,7 +67,7 @@ const llivros = [
     id: 20236,
     estoque: 10,
   },
-  7
+  
 ];
 
 function info_menu() {
