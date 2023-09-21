@@ -102,7 +102,7 @@ while (acabou === false) {
       cadastro(llivros, red, reset, green);
       break;
     case "2":
-      excluir_cadastro(llivros);
+      excluir_cadastro(llivros, red, reset, green);
       break;
     case "3":
       mod_inf(llivros);
